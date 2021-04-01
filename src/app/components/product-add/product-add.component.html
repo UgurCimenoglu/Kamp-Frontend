@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Ürün Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="productAddForm">
+                    <label for="productName">Product Name</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="productName" formControlName="productName"
+                            placeholder="Product Name">
+                    </div>
+                    <label for="unitPrice">Unit Price</label>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="unitPrice" formControlName="unitPrice"
+                            placeholder="Unit Price">
+                    </div>
+                    <label for="unitsInStock">Units in Stock</label>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="unitsInStock" formControlName="unitsInStock"
+                            placeholder="Units in Stock">
+                    </div>
+                    <label for="categoryId">Category Id</label>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="categoryId" formControlName="categoryId"
+                            placeholder="Category Id">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-success" (click)="add()">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

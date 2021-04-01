@@ -22,4 +22,10 @@ export class ProductService {
     let newPath = this.apiUrl + "products/getallbycategoryid?categoryId=" + categoryId;
     return this.httpClient.get<ListResposeModel<Product>>(newPath);
   }
+
+  add(product:Product){
+    let newPath = this.apiUrl+"products/add";
+    return this.httpClient.post(newPath,product);
+  }
+
 }

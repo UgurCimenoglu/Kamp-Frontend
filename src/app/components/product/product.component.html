@@ -2,23 +2,36 @@
     <span class="sr-only"></span>
 </div>
 
-<table class="table table-bordered">
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Ürün Ara</label>
+    <input id="filterText" [(ngModel)]="filterText" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ara...">
+  </div>
+
+  <div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} aradınız.
+  </div>
+
+<table class="table ">
     <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>CategoryId</th>
             <th>UnitPrice</th>
+            <th>UnitPrice + KDV</th>
             <th>UnitsInStock</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of Products">
+        <tr *ngFor="let product of Products | filter:filterText">
             <td>{{product.productId}}</td>
             <td>{{product.productName}}</td>
             <td>{{product.categoryId}}</td>
             <td>{{product.unitPrice}}</td>
+            <td>{{product.unitPrice | vatAdded:10 | currency}}</td>
             <td>{{product.unitsInStock}}</td>
+            <td><button (click)="addToCart(product)" class="btn btn-success">Sepete Ekle</button></td>
         </tr>
     </tbody>
 </table>
